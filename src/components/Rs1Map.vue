@@ -1,6 +1,5 @@
 <template>
   <div class="map">
-    <p>hello map</p>
     <mapbox
       access-token="pk.eyJ1Ijoia3Jiam9uZXMiLCJhIjoiYjZiM2UxZDYyYWQ0MmI0ZWY4ZDU0ZTAxMmRhNjIxMWEifQ.W29Ph-YqccKz7_pfVAd2qw"
       :map-options="{
@@ -29,7 +28,6 @@
 <script>
 import Mapbox from 'mapbox-gl-vue'
 // import initializeMap from "@/utilities/rs1-map.js";
-
 export default {
   name: "rs1-map",
   components: { Mapbox },
@@ -156,11 +154,9 @@ export default {
 </script>
 
 <style scoped>
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
+  #map {
+    width: 100%;
+    height: 75vh;
+  }
 </style>
 

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Rs1Map from './views/Rs1Map.vue'
+import Rs1Map from './components/Rs1Map.vue'
 
 Vue.use(Router)
 
