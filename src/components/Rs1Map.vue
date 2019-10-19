@@ -28,6 +28,7 @@
 <script>
 import Mapbox from 'mapbox-gl-vue'
 // import initializeMap from "@/utilities/rs1-map.js";
+
 export default {
   name: "rs1-map",
   components: { Mapbox },
@@ -82,37 +83,37 @@ export default {
 
 
 
-            var rs1_extents_url = 'https://radarsat-1-archive.space/catalog_extents.geojson';
-            map.addSource('rs1-extents', {
-                type: 'geojson',
-                data: rs1_extents_url,
-            });
-
+            // var rs1_extents_url = 'https://radarsat-1-archive.space/catalog_extents.geojson';
             // map.addSource('rs1-extents', {
-            //     "type": "geojson",
-            //     "data": {
-            //         "type": "FeatureCollection",
-            //         "name": "catalog_extents",
-            //         "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-            //         "features": [
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:36:55 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5786W10910", "END_DATEPr": "1998-01-28 13:37:12 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-109.855204, 58.437327], [-108.007214, 58.24996], [-108.379629, 57.297253], [-110.179022, 57.482815], [-109.855204, 58.437327]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:37:09 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5705W10939", "END_DATEPr": "1998-01-28 13:37:26 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-110.1302, 57.620205], [-108.326446, 57.434624], [-108.68753, 56.481294], [-110.445196, 56.665244], [-110.1302, 57.620205]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:37:23 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5631W10965", "END_DATEPr": "1998-01-28 13:37:37 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-110.401111, 56.802271], [-108.636263, 56.618023], [-108.930001, 55.820966], [-110.658053, 56.003973], [-110.401111, 56.802271]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-04 13:37:08 GMT", "BEAM_MODEP": "Standard 6", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980504_N5784W11162", "END_DATEPr": "1998-05-04 13:37:25 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.392693, 58.401011], [-110.58114, 58.25323], [-110.887567, 57.293548], [-112.651096, 57.440911], [-112.392693, 58.401011]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-04 13:37:22 GMT", "BEAM_MODEP": "Standard 6", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980504_N5709W11184", "END_DATEPr": "1998-05-04 13:37:36 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.617988, 57.565857], [-110.847928, 57.418408], [-111.098371, 56.614496], [-112.830125, 56.761683], [-112.617988, 57.565857]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-17 13:57:59 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980517_N5787W11187", "END_DATEPr": "1998-05-17 13:58:16 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.578948, 58.479871], [-110.727017, 58.25468], [-111.187807, 57.262932], [-112.988747, 57.484681], [-112.578948, 58.479871]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-17 13:58:14 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980517_N5713W11219", "END_DATEPr": "1998-05-17 13:58:27 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.92548, 57.644522], [-111.115063, 57.422066], [-111.474484, 56.6234], [-113.245663, 56.843263], [-112.92548, 57.644522]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-19 00:55:47 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980519_N5735W11102", "END_DATEPr": "1998-05-19 00:56:04 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Ascending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.153317, 57.737222], [-110.324165, 57.961417], [-109.925149, 56.972915], [-111.705182, 56.751997], [-112.153317, 57.737222]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-19 00:55:58 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980519_N5798W11129", "END_DATEPr": "1998-05-19 00:56:15 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Ascending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.447983, 58.362806], [-110.583955, 58.589473], [-110.174824, 57.601441], [-111.987733, 57.378244], [-112.447983, 58.362806]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-03 14:02:05 GMT", "BEAM_MODEP": "Standard 1", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980603_N5780W11181", "END_DATEPr": "1998-06-03 14:02:22 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.501811, 58.418622], [-110.656911, 58.177273], [-111.147744, 57.18997], [-112.941591, 57.427136], [-112.501811, 58.418622]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-03 14:02:19 GMT", "BEAM_MODEP": "Standard 1", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980603_N5707W11214", "END_DATEPr": "1998-06-03 14:02:33 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.869588, 57.589554], [-111.06864, 57.351855], [-111.447962, 56.563571], [-113.209966, 56.798129], [-112.869588, 57.589554]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-04 13:32:53 GMT", "BEAM_MODEP": "Standard 7", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980604_N5784W11161", "END_DATEPr": "1998-06-04 13:33:09 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.416524, 58.388269], [-110.553903, 58.251846], [-110.82852, 57.30607], [-112.642429, 57.442641], [-112.416524, 58.388269]]]] } },
-            //             { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-04 13:33:07 GMT", "BEAM_MODEP": "Standard 7", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980604_N5708W11180", "END_DATEPr": "1998-06-04 13:33:21 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.611748, 57.558275], [-110.794962, 57.42192], [-111.025842, 56.608771], [-112.802848, 56.745324], [-112.611748, 57.558275]]]] } },
-            //         ]
-            //     }
+            //     type: 'geojson',
+            //     data: rs1_extents_url,
+            // });
 
-            // }
-            // );
+            map.addSource('rs1-extents', {
+                "type": "geojson",
+                "data": {
+                    "type": "FeatureCollection",
+                    "name": "catalog_extents",
+                    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                    "features": [
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:36:55 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5786W10910", "END_DATEPr": "1998-01-28 13:37:12 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-109.855204, 58.437327], [-108.007214, 58.24996], [-108.379629, 57.297253], [-110.179022, 57.482815], [-109.855204, 58.437327]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:37:09 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5705W10939", "END_DATEPr": "1998-01-28 13:37:26 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-110.1302, 57.620205], [-108.326446, 57.434624], [-108.68753, 56.481294], [-110.445196, 56.665244], [-110.1302, 57.620205]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-01-28 13:37:23 GMT", "BEAM_MODEP": "Standard 4", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980128_N5631W10965", "END_DATEPr": "1998-01-28 13:37:37 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-110.401111, 56.802271], [-108.636263, 56.618023], [-108.930001, 55.820966], [-110.658053, 56.003973], [-110.401111, 56.802271]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-04 13:37:08 GMT", "BEAM_MODEP": "Standard 6", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980504_N5784W11162", "END_DATEPr": "1998-05-04 13:37:25 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.392693, 58.401011], [-110.58114, 58.25323], [-110.887567, 57.293548], [-112.651096, 57.440911], [-112.392693, 58.401011]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-04 13:37:22 GMT", "BEAM_MODEP": "Standard 6", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980504_N5709W11184", "END_DATEPr": "1998-05-04 13:37:36 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.617988, 57.565857], [-110.847928, 57.418408], [-111.098371, 56.614496], [-112.830125, 56.761683], [-112.617988, 57.565857]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-17 13:57:59 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980517_N5787W11187", "END_DATEPr": "1998-05-17 13:58:16 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.578948, 58.479871], [-110.727017, 58.25468], [-111.187807, 57.262932], [-112.988747, 57.484681], [-112.578948, 58.479871]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-17 13:58:14 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980517_N5713W11219", "END_DATEPr": "1998-05-17 13:58:27 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.92548, 57.644522], [-111.115063, 57.422066], [-111.474484, 56.6234], [-113.245663, 56.843263], [-112.92548, 57.644522]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-19 00:55:47 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980519_N5735W11102", "END_DATEPr": "1998-05-19 00:56:04 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Ascending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.153317, 57.737222], [-110.324165, 57.961417], [-109.925149, 56.972915], [-111.705182, 56.751997], [-112.153317, 57.737222]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-05-19 00:55:58 GMT", "BEAM_MODEP": "Standard 2", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980519_N5798W11129", "END_DATEPr": "1998-05-19 00:56:15 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Ascending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.447983, 58.362806], [-110.583955, 58.589473], [-110.174824, 57.601441], [-111.987733, 57.378244], [-112.447983, 58.362806]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-03 14:02:05 GMT", "BEAM_MODEP": "Standard 1", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980603_N5780W11181", "END_DATEPr": "1998-06-03 14:02:22 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.501811, 58.418622], [-110.656911, 58.177273], [-111.147744, 57.18997], [-112.941591, 57.427136], [-112.501811, 58.418622]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-03 14:02:19 GMT", "BEAM_MODEP": "Standard 1", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980603_N5707W11214", "END_DATEPr": "1998-06-03 14:02:33 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.869588, 57.589554], [-111.06864, 57.351855], [-111.447962, 56.563571], [-113.209966, 56.798129], [-112.869588, 57.589554]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-04 13:32:53 GMT", "BEAM_MODEP": "Standard 7", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980604_N5784W11161", "END_DATEPr": "1998-06-04 13:33:09 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.416524, 58.388269], [-110.553903, 58.251846], [-110.82852, 57.30607], [-112.642429, 57.442641], [-112.416524, 58.388269]]]] } },
+                        { "type": "Feature", "properties": { "SATELLITEP": "RADARSAT-1", "ARCHIVE_FP": "CCMEO", "RECEPTIONP": "GSS", "DATEProper": "1998-06-04 13:33:07 GMT", "BEAM_MODEP": "Standard 7", "POLARIZATP": "HH", "IMAGE_INFP": null, "REASONProp": null, "METADATAPr": "dummy value", "SENSOR_MOP": "Standard", "TITLEPrope": "rsat1_19980604_N5708W11180", "END_DATEPr": "1998-06-04 13:33:21 GMT", "OPTIONSPro": null, "ORBIT_DIRP": "Descending", "ORDERABLEP": "true", "SERVICE_UP": "SERVICE-RSAT1_001-000000000000000000", "LOOK_ORIEP": "Right", "targettype": "DSA" }, "geometry": { "type": "MultiPolygon", "coordinates": [[[[-112.611748, 57.558275], [-110.794962, 57.42192], [-111.025842, 56.608771], [-112.802848, 56.745324], [-112.611748, 57.558275]]]] } },
+                    ]
+                }
+
+            }
+            );
 
 
             map.addLayer({
@@ -140,13 +141,51 @@ export default {
             map.addLayer({
                 "id": "rs1-centroids-clustering-layer",
                 "type": "circle",
-                "source": "rs1-centroi",
+                "source": "rs1-centroids",
                 "paint": {
                     "fill-color": "#888888",
                     "fill-opacity": 0.4
                 },
-                "filter": ["==", "$type", "Polygon"]
+                "filter": ["==", "$type", "Polygon"],
+                "filter": ["has", "point_count"],
+                "paint": {
+                // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+                // with three steps to implement three types of circles:
+                //   * Blue, 20px circles when point count is less than 100
+                //   * Yellow, 30px circles when point count is between 100 and 750
+                //   * Pink, 40px circles when point count is greater than or equal to 750
+                "circle-color": [
+                "step",
+                ["get", "point_count"],
+                "#51bbd6",
+                5,
+                "#f1f075",
+                10,
+                "#f28cb1"
+                ],
+                "circle-radius": [
+                "step",
+                ["get", "point_count"],
+                10,
+                5,
+                20,
+                10,
+                30
+                ]
+                }
             });
+
+            map.addLayer({
+id: "cluster-count",
+type: "symbol",
+source: "rs1-centroids",
+filter: ["has", "point_count"],
+layout: {
+"text-field": "{point_count_abbreviated}",
+"text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+"text-size": 18
+}
+});
 
     }
   }
@@ -154,9 +193,11 @@ export default {
 </script>
 
 <style scoped>
-  #map {
-    width: 100%;
-    height: 75vh;
-  }
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
 </style>
 
