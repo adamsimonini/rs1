@@ -13,7 +13,6 @@
           >
           </v-layout>
           <v-list-group
-            v-else-if="item.children"
             :key="item.text"
             v-model="item.model"
             :prepend-icon="item.model ? item.icon : item['icon-alt']"
@@ -28,7 +27,12 @@
                 </v-list-item-content>
               </v-list-item>
             </template>
-            <v-list-item
+            <p>test</p>
+            <!-- <template v-slot="datePicker">
+              <p>test</p>
+            </template> -->
+            <!-- <slot name="item.componentName"></slot> -->
+            <!-- <v-list-item
               v-for="(child, i) in item.children"
               :key="i"
             >
@@ -42,21 +46,8 @@
                   </v-list-item-title>
                 </v-list-item-content>
               </router-link>
-            </v-list-item>
+            </v-list-item> -->
           </v-list-group>
-          <v-list-item
-            v-else
-            :key="item.text"
-          >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ item.text }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
         </template>
       </v-list>
     </v-navigation-drawer>
@@ -74,12 +65,14 @@ export default {
       drawer: null,
       items: [
         {
-          text: 'Part I',
+          text: 'Beam Modes',
           model: true,
-          children: [
-            { text: 'Filter', route: '/' },
-            { text: 'About', route: '/' },
-          ],
+          componentName: 'datePicker',
+        },
+        {
+          text: 'Date Ranges',
+          model: false,
+          componentName: 'datePicker'
         },
       ],
   }),
