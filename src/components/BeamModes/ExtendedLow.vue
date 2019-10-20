@@ -1,0 +1,47 @@
+<template>
+  <div class="bm_extendedlow">
+    <v-container fluid>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Extended Low 1" value="Low Incidence 1"></v-checkbox>
+    </v-container>
+    <v-btn @click="toggleAll">{{toggleButtonName}}</v-btn>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'BM_ExtendedLow',
+  components: {
+  },
+  data () {
+    return {
+      selected: this.$store.state.filterState.ExtendedLow,
+      toggleButtonName: "Select All",
+    }
+  },
+  methods: {
+    handleClick: function() {
+      let filters = this.$store.state.filterState;
+      filters.ExtendedLow = this.selected
+      this.$store.commit('assignFilters', filters)
+      this.refreshMap();
+    },
+      toggleAll: function() {
+      if(this.selected.length == 6) {
+        this.selected = [];
+        this.toggleButtonName = "Select All";
+      } else {
+        this.selected = ['Low Incidence 1'];
+        this.toggleButtonName = "Select None";
+      }
+      let filters = this.$store.state.filterState;
+      filters.ExtendedLow = this.selected
+      this.$store.commit('assignFilters', filters)
+      this.refreshMap();
+    }
+  }
+};
+</script>
+
+<style scoped>
+</style>

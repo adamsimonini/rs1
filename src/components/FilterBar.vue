@@ -42,6 +42,7 @@ import BMStandard from "@/components/BeamModes/Standard.vue";
 import BMFine from "@/components/BeamModes/Fine.vue";
 import BMScn from "@/components/BeamModes/ScanSarNarrow.vue";
 import BMExtendedHigh from "@/components/BeamModes/ExtendedHigh.vue";
+import BMExtendedLow from "@/components/BeamModes/ExtendedLow.vue";
 
 export default {
   name: "FilterBar",
@@ -52,7 +53,8 @@ export default {
     BMStandard,
     BMFine,
     BMScn,
-    BMExtendedHigh
+    BMExtendedHigh,
+    BMExtendedLow
   },
   data: () => ({
     drawer: null,
@@ -68,6 +70,10 @@ export default {
           {
             name: "Extended High",
             componentName: "BMExtendedHigh"
+          },
+          {
+            name: "Extended Low",
+            componentName: "BMExtendedLow"
           },
           {
             name: "Standard",
