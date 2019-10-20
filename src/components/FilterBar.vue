@@ -75,7 +75,7 @@ export default {
         ]
       },
       {
-        name: "Beam children",
+        name: "Beam Modes",
         show: false,
         children: [
           {
