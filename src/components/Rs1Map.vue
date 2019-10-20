@@ -35,10 +35,9 @@ export default {
     },
     loaded(map){
       
-            var rs1_centroids_url = 'https://spa2019-admin.deploy.solutions/api/centroids';
             map.addSource('rs1-centroids', {
                 type: 'geojson',
-                data: rs1_centroids_url,
+                data: this.buildCentroidsUrl(),
                 cluster: true,
                 clusterMaxZoom: 14, // Max zoom to cluster points on
                 clusterRadius: 10 // Radius of each cluster when clustering points (defaults to 50)
@@ -93,10 +92,9 @@ export default {
 
 
 
-            var rs1_extents_url = 'https://spa2019-admin.deploy.solutions/api/footprints';
             map.addSource('rs1-extents', {
                 type: 'geojson',
-                data: rs1_extents_url,
+                data: this.buildFootprintsUrl(),
             });
 
             // map.addSource('rs1-extents', {

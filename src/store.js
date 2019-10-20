@@ -8,6 +8,8 @@ export default new Vuex.Store({
     drawer: true,
     filterState: {},
     the_map: {},
+    centroidsApiUrl: "https://spa2019-admin.deploy.solutions/api/centroids",
+    footprintsApiUrl: "https://spa2019-admin.deploy.solutions/api/footprints"
   },
   mutations: {
     toggleDrawer(state) {
