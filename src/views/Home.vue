@@ -24,37 +24,4 @@ export default {
 </script>
 
 <style scoped>
-.link .v-list-item__title{
-  color: #2e7d32;
-  font-size: 1rem !important;
-}
-.link {
-  width: 100%;
-  padding: 0 10px;
-  border: 3px solid transparent;
-  opacity: 1;
-}
-.link:hover {
-  border-bottom: 3px solid #2e7d32;
-}
-.splash-art {
-  width: 100%;
-  background-image: url('../assets/farm-clipart.jpg');
-  background-position: center;
-  height: 400px;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.splash-parent {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.link-box {
-  opacity: .9;
-  padding: 10px 0;
-}
 </style>

@@ -3,7 +3,7 @@
     <v-container fluid>
       <v-checkbox @click.native="handleClick" dense v-model="selected" label="Extended Low 1" value="Low Incidence 1"></v-checkbox>
     </v-container>
-    <v-btn @click="toggleAll">{{toggleButtonName}}</v-btn>
+    <v-btn class="selectButton" @click="toggleAll" color="#193d8f">{{toggleButtonName}}</v-btn>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       this.refreshMap();
     },
       toggleAll: function() {
-      if(this.selected.length == 6) {
+      if(this.selected.length == 1) {
         this.selected = [];
         this.toggleButtonName = "Select All";
       } else {
@@ -44,4 +44,7 @@ export default {
 </script>
 
 <style scoped>
+  .selectButton{
+    color: white !important;
+  }
 </style>

@@ -17,7 +17,7 @@
       <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 14" value="Fine 14"></v-checkbox>
       <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 15" value="Fine 15"></v-checkbox>
     </v-container>
-    <v-btn @click="toggleAll">{{toggleButtonName}}</v-btn>
+    <v-btn class="selectButton" @click="toggleAll" color="#193d8f">{{toggleButtonName}}</v-btn>
   </div>
 </template>
 
@@ -58,4 +58,7 @@ export default {
 </script>
 
 <style scoped>
+  .selectButton{
+    color: white !important;
+  }
 </style>

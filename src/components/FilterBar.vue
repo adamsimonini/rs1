@@ -2,12 +2,6 @@
   <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
     <v-list dense>
       <template v-for="(item, i) in filters">
-        <!-- <v-layout
-            v-if="item.heading"
-            :key="item.heading"
-            align-center
-          >
-        </v-layout>-->
         <v-list-group
           :key="item.text"
           v-model="item.model"
@@ -22,7 +16,6 @@
             </v-list-item>
           </template>
           <v-list-item-subtitle class="filterSubtitle">{{ item.modes[i].name }}</v-list-item-subtitle>
-          <!-- <p>{{ item.modes[i].name }}</p> -->
           <v-list-item v-for="mode in item.modes" :key="mode.name">
             <v-list-item-action v-if="mode.icon">
               <v-icon>{{ mode.icon }}</v-icon>
