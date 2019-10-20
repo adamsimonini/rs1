@@ -37,7 +37,7 @@ export default {
       
             map.addSource('rs1-centroids', {
                 type: 'geojson',
-                data: this.buildCentroidsUrl(),
+                data: this.buildCentroidsUrl(this.$store.state.filterState),
                 cluster: true,
                 clusterMaxZoom: 14, // Max zoom to cluster points on
                 clusterRadius: 10 // Radius of each cluster when clustering points (defaults to 50)
@@ -94,7 +94,7 @@ export default {
 
             map.addSource('rs1-extents', {
                 type: 'geojson',
-                data: this.buildFootprintsUrl(),
+                data: this.buildFootprintsUrl(this.$store.state.filterState),
             });
 
             // map.addSource('rs1-extents', {
