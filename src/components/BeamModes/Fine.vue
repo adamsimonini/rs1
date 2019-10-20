@@ -1,21 +1,21 @@
 <template>
-  <div class="bm_fine">
+  <div class="bm_fine beam_mode_filter">
     <v-container fluid>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 1" value="Fine 1"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 2" value="Fine 2"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 3" value="Fine 3"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 4" value="Fine 4"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 5" value="Fine 5"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 6" value="Fine 6"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 7" value="Fine 7"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 8" value="Fine 8"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 9" value="Fine 9"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 10" value="Fine 10"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 11" value="Fine 11"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 12" value="Fine 12"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 13" value="Fine 13"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 14" value="Fine 14"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 15" value="Fine 15"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 1" value="Fine 1"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 2" value="Fine 2"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 3" value="Fine 3"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 4" value="Fine 4"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 5" value="Fine 5"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 6" value="Fine 6"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 7" value="Fine 7"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 8" value="Fine 8"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 9" value="Fine 9"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 10" value="Fine 10"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 11" value="Fine 11"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 12" value="Fine 12"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 13" value="Fine 13"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 14" value="Fine 14"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Fine 15" value="Fine 15"></v-checkbox>
     </v-container>
     <v-btn class="selectButton" @click="toggleAll" color="#193d8f">{{toggleButtonName}}</v-btn>
   </div>
@@ -58,7 +58,4 @@ export default {
 </script>
 
 <style scoped>
-  .selectButton{
-    color: white !important;
-  }
 </style>

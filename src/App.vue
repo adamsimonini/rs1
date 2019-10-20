@@ -72,18 +72,28 @@ a {
 }
 
 #content-container {
-  padding-left: 20px;
   width: 100%;
 }
-.v-list-group:nth-of-type(2){ 
-  border-top: 2px #193D8F solid;
+.filter_category{ 
+  border-left: 2px #193D8F solid;
+  opacity: 0.8;
+  margin-bottom: 10px;
 }
-
+.selectButton{
+  color: white !important;
+}
 .v-list-item__title{
   color: black;
   font-size: 0.9rem !important;
 }
 .path {
   color: #193D8F;
+}
+.v-navigation-drawer__border {
+  color: red;
+}
+.beam_mode_filter {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #193D8F;
 }
 </style>

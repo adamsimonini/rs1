@@ -1,13 +1,13 @@
 <template>
-  <div class="bm_standard">
+  <div class="bm_standard beam_mode_filter">
     <v-container fluid>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 1" value="Standard 1"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 2" value="Standard 2"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 3" value="Standard 3"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 4" value="Standard 4"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 5" value="Standard 5"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 6" value="Standard 6"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 7" value="Standard 7"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 1" value="Standard 1"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 2" value="Standard 2"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 3" value="Standard 3"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 4" value="Standard 4"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 5" value="Standard 5"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 6" value="Standard 6"></v-checkbox>
+      <v-checkbox color="#193d8f" @click.native="handleClick" dense v-model="selected" label="Standard 7" value="Standard 7"></v-checkbox>
     </v-container>
     <v-btn class="selectButton" @click="toggleAll" color="#193d8f">{{toggleButtonName}}</v-btn>
   </div>
@@ -50,7 +50,4 @@ export default {
 </script>
 
 <style scoped>
-  .selectButton{
-    color: white !important;
-  }
 </style>
