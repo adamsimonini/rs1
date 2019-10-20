@@ -17,13 +17,15 @@
       }"
       @map-init="mapInitialized"
       @map-load="loaded"
+      @map-click="mapClicked"
     />
     <!-- <div id="map"></div> -->
   </div>
 </template>
 
 <script>
-import Mapbox from 'mapbox-gl-vue'
+import Mapbox from 'mapbox-gl-vue';
+import PopupContent from '@/components/PopupContent.vue';
 // import initializeMap from "@/utilities/rs1-map.js";
 
 export default {
@@ -124,79 +126,115 @@ export default {
             // );
 
 
-            map.addLayer({
-                "id": "rs1-extents-layer",
-                "type": "fill",
-                "source": "rs1-extents",
-                "paint": {
-                    "fill-color": "#888888",
-                    "fill-opacity": 0.4
-                },
-                "filter": ["==", "$type", "Polygon"]
-            });
+    map.addLayer({
+        "id": "rs1-extents-layer",
+        "type": "fill",
+        "source": "rs1-extents",
+        "paint": {
+            "fill-color": "#888888",
+            "fill-opacity": 0.4
+        },
+        "filter": ["==", "$type", "Polygon"]
+    });
+    map.addLayer({
+        "id": "rs1-centroids-layer",
+        "type": "circle",
+        "source": "rs1-centroids",
+        "paint": {
+            "circle-radius": 6,
+            "circle-color": "#193D8F"
+        },
+        "filter": ["==", "$type", "Point"],
+    });
 
-            map.addLayer({
-                "id": "rs1-centroids-layer",
-                "type": "circle",
-                "source": "rs1-centroids",
-                "paint": {
-                    "circle-radius": 6,
-                    "circle-color": "#193D8F"
-                },
-                "filter": ["==", "$type", "Point"],
-            });
+    map.addLayer({
+      "id": "rs1-centroids-clustering-layer",
+      "type": "circle",
+      "source": "rs1-centroids",
+      "paint": {
+          "circle-radius": 6,
+          "circle-color": "#193D8F"
+      },
+      "filter": ["==", "$type", "Polygon"],
+      "filter": ["has", "point_count"],
+      "paint": {
+      // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+      // with three steps to implement three types of circles:
+      //   * Blue, 20px circles when point count is less than 100
+      //   * Yellow, 30px circles when point count is between 100 and 750
+      //   * Pink, 40px circles when point count is greater than or equal to 750
+      "circle-color": [
+      "step",
+      ["get", "point_count"],
+      "#758ABB",
+      5,
+      "#4763A5",
+      10,
+      "#193D8F"
+      ],
+      "circle-radius": [
+      "step",
+      ["get", "point_count"],
+      10,
+      5,
+      20,
+      10,
+      30
+      ]
+      }
+    });
 
-            map.addLayer({
-                "id": "rs1-centroids-clustering-layer",
-                "type": "circle",
-                "source": "rs1-centroids",
-                "paint": {
-                    "circle-radius": 6,
-                    "circle-color": "#193D8F"
-                },
-                "filter": ["==", "$type", "Polygon"],
-                "filter": ["has", "point_count"],
-                "paint": {
-                // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-                // with three steps to implement three types of circles:
-                //   * Blue, 20px circles when point count is less than 100
-                //   * Yellow, 30px circles when point count is between 100 and 750
-                //   * Pink, 40px circles when point count is greater than or equal to 750
-                "circle-color": [
-                "step",
-                ["get", "point_count"],
-                "#758ABB",
-                5,
-                "#4763A5",
-                10,
-                "#193D8F"
-                ],
-                "circle-radius": [
-                "step",
-                ["get", "point_count"],
-                10,
-                5,
-                20,
-                10,
-                30
-                ]
-                }
-            });
+    map.addLayer({
+      id: "cluster-count",
+      type: "symbol",
+      source: "rs1-centroids",
+      filter: ["has", "point_count"],
+      layout: {
+      "text-field": "{point_count_abbreviated}",
+      "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+      "text-size": 12
+      }
+    });
+  },
+  mapClicked(map, e) {
+    // if (e.features) {
+      console.log(e);
+      new mapboxgl.Popup()
+        .setLngLat({ lng: e.lngLat.lng, lat: e.lngLat.lat })
+        // setup a new div to mount the popup
+        .setHTML('<div id="vue-popup-content"></div>')
+        .addTo(map);
+      new PopupContent({
+        propsData: { 
+          feature: {
+            info: {
+              beamMode: ['Standard', "Fine", "Extened High", "Extended Low", "ScanSAR"],
+              lng: e.lngLat.lng,
+              lat: e.lngLat.lat,
+            }
+          }},
+      }).$mount('#vue-popup-content');
+    // }
+    // if (e.features) {
+    //   const coordinates = e.features[0].geometry.coordinates.slice()
+    //   // Ensure that if the map is zoomed out such that multiple
+    //   // copies of the feature are visible, the popup appears
+    //   // over the copy being pointed to.
+    //   while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+    //     coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360
+    //   }
 
-            map.addLayer({
-id: "cluster-count",
-type: "symbol",
-source: "rs1-centroids",
-filter: ["has", "point_count"],
-layout: {
-"text-field": "{point_count_abbreviated}",
-"text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-"text-size": 12
-}
-});
+    //   new mapboxgl.Popup()
+    //     .setLngLat({ lng: coordinates[0], lat: coordinates[1] })
+    //     .setHTML('<div id="vue-popup-content"></div>')
+    //     .addTo(map)
 
-    }
-  }
+    //   new PopupContent({
+    //     propsData: { feature: e.features[0] },
+    //   }).$mount('#vue-popup-content')
+    // }
+    },
+  },
 };
 </script>
 
@@ -206,6 +244,10 @@ layout: {
   top: 0;
   bottom: 0;
   width: 95%;
+}
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 </style>
 
