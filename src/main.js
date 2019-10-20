@@ -25,19 +25,19 @@ Vue.mixin({
           queryFilterObject.beam_modep = queryFilterObject.beam_modep.concat(filters[key])
         }
       }
-      return JSON.stringify(queryFilterObject)
+      return "beam_modep=" + queryFilterObject.beam_modep.join(',')
     },
     buildCentroidsUrl: function (filters) {
       let baseUrl = this.$store.state.centroidsApiUrl
       let queryObjectString = this.buildQueryObject(filters)
-      let url = baseUrl + '?filter=' + queryObjectString
+      let url = baseUrl + "?" + queryObjectString
       console.log('centroids:' + url)
       return url
     },
     buildFootprintsUrl: function (filters) {
       let baseUrl = this.$store.state.footprintsApiUrl
       let queryObjectString = this.buildQueryObject(filters)
-      let url = baseUrl + '?filter=' + queryObjectString
+      let url = baseUrl + "?" + queryObjectString
       console.log('footprints:' + url)
       return url
     },
