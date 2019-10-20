@@ -49,6 +49,7 @@
 <script>
 import BMStandard from '@/components/BeamModes/Standard.vue';
 import BMFine from '@/components/BeamModes/Fine.vue';
+import BMScn from '@/components/BeamModes/ScanSarNarrow.vue';
 
 export default {
   name: 'FilterBar',
@@ -58,6 +59,7 @@ export default {
   components: {
     BMStandard,
     BMFine,
+    BMScn,
   },
   data: () => ({
       drawer: null,
@@ -67,6 +69,9 @@ export default {
           model: true,
           modes: [
             {
+              name: 'ScanSAR Narrow',
+              componentName: 'BMScn'
+            },            {
               name: 'Standard',
               componentName: 'BMStandard'
             },
