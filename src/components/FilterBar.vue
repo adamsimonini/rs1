@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import Standard from '@/components/BeamModes/Standard.vue';
-// import DatePicker from '@/components/DatePicker.vue';
+import BMStandard from '@/components/BeamModes/Standard.vue';
+import BMFine from '@/components/BeamModes/Fine.vue';
 
 export default {
   name: 'FilterBar',
@@ -56,8 +56,8 @@ export default {
     source: String,
   },
   components: {
-    Standard,
-    // DatePicker,
+    BMStandard,
+    BMFine,
   },
   data: () => ({
       drawer: null,
@@ -68,11 +68,11 @@ export default {
           modes: [
             {
               name: 'Standard',
-              componentName: 'Standard'
+              componentName: 'BMStandard'
             },
             {
-              name: 'Standard222',
-              componentName: 'Standard'
+              name: 'Fine',
+              componentName: 'BMFine'
             },
           ],
         },
