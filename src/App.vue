@@ -76,16 +76,12 @@ a {
   width: 100%;
 }
 .v-list-group:nth-of-type(2){ 
-  border-top: 2px green solid;
+  border-top: 2px #193D8F solid;
 }
 
 .v-list-item__title{
   color: black;
   font-size: 0.9rem !important;
-}
-
-a {
-    color: #2E7D32 !important;
 }
 .path {
   color: #193D8F;

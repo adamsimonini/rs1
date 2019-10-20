@@ -4,8 +4,8 @@
       <template v-for="(item, i) in filters">
         <v-list-group
           :key="item.text"
-          v-model="item.model"
-          :prepend-icon="item.model ? item.icon : item['icon-alt']"
+          v-model="item.show"
+          :prepend-icon="item.show ? item.icon : item['icon-alt']"
           append-icon
         >
           <template v-slot:activator>
@@ -15,13 +15,13 @@
               </v-list-item-content>
             </v-list-item>
           </template>
-          <v-list-item-subtitle class="filterSubtitle">{{ item.modes[i].name }}</v-list-item-subtitle>
-          <v-list-item v-for="mode in item.modes" :key="mode.name">
-            <v-list-item-action v-if="mode.icon">
-              <v-icon>{{ mode.icon }}</v-icon>
+          <v-list-item-subtitle v-if="item.children[0].name" class="filterSubtitle">{{ item.children[i].name }}</v-list-item-subtitle>
+          <v-list-item v-for="child in item.children" :key="child.name">
+            <v-list-item-action v-if="child.icon">
+              <v-icon>{{ child.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <component v-bind:is="mode.componentName"></component>
+              <component v-bind:is="child.componentName"></component>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
@@ -36,6 +36,8 @@ import BMFine from "@/components/BeamModes/Fine.vue";
 import BMScn from "@/components/BeamModes/ScanSarNarrow.vue";
 import BMExtendedHigh from "@/components/BeamModes/ExtendedHigh.vue";
 import BMExtendedLow from "@/components/BeamModes/ExtendedLow.vue";
+import LocationSearch from "@/components/LocationSearch.vue";
+import DateRanges from "@/components/DateRanges.vue";
 
 export default {
   name: "FilterBar",
@@ -47,15 +49,35 @@ export default {
     BMFine,
     BMScn,
     BMExtendedHigh,
-    BMExtendedLow
+    BMExtendedLow,
+    LocationSearch,
+    DateRanges
   },
   data: () => ({
     drawer: null,
     filters: [
       {
-        name: "Beam Modes",
-        model: true,
-        modes: [
+        name: "Search",
+        show: true,
+        children: [
+          {
+            componentName: "LocationSearch"
+          },
+        ]
+      },
+      {
+        name: "Dates",
+        show: false,
+        children: [
+          {
+            componentName: "DateRanges"
+          },
+        ]
+      },
+      {
+        name: "Beam children",
+        show: false,
+        children: [
           {
             name: "ScanSAR Narrow",
             componentName: "BMScn"
@@ -77,12 +99,7 @@ export default {
             componentName: "BMFine"
           }
         ]
-      }
-      // {
-      //   text: 'Date Ranges',
-      //   model: false,
-      //   componentName: 'DatePicker'
-      // },
+      },
     ]
   })
 };
