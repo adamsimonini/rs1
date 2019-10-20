@@ -5,13 +5,13 @@
       app
     >
       <v-list dense>
-        <template v-for="item in items">
-          <v-layout
+        <template v-for="(item, i) in filters">
+          <!-- <v-layout
             v-if="item.heading"
             :key="item.heading"
             align-center
           >
-          </v-layout>
+          </v-layout> -->
           <v-list-group
             :key="item.text"
             v-model="item.model"
@@ -22,31 +22,24 @@
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.text }}
+                    {{ item.name }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
-            <p>test</p>
-            <!-- <template v-slot="datePicker">
-              <p>test</p>
-            </template> -->
-            <!-- <slot name="item.componentName"></slot> -->
-            <!-- <v-list-item
-              v-for="(child, i) in item.children"
-              :key="i"
+            <v-list-item-subtitle class="filterSubtitle">{{ item.modes[i].name }}</v-list-item-subtitle>
+            <!-- <p>{{ item.modes[i].name }}</p> -->
+            <v-list-item
+              v-for="mode in item.modes"
+              :key="mode.name"
             >
-              <router-link :to=child.route>
-                <v-list-item-action v-if="child.icon">
-                  <v-icon>{{ child.icon }}</v-icon>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{ child.text }}
-                  </v-list-item-title>
-                </v-list-item-content>
-              </router-link>
-            </v-list-item> -->
+              <v-list-item-action v-if="mode.icon">
+                <v-icon>{{ mode.icon }}</v-icon>
+              </v-list-item-action>
+              <v-list-item-content>
+                <component v-bind:is="mode.componentName"></component>
+              </v-list-item-content>
+            </v-list-item>
           </v-list-group>
         </template>
       </v-list>
@@ -54,28 +47,49 @@
 </template>
 
 <script>
+import Standard from '@/components/BeamModes/Standard.vue';
+// import DatePicker from '@/components/DatePicker.vue';
+
 export default {
   name: 'FilterBar',
   props: {
     source: String,
   },
   components: {
+    Standard,
+    // DatePicker,
   },
   data: () => ({
       drawer: null,
-      items: [
+      filters: [
         {
-          text: 'Beam Modes',
+          name: 'Beam Modes',
           model: true,
-          componentName: 'datePicker',
+          modes: [
+            {
+              name: 'Standard',
+              componentName: 'Standard'
+            },
+            {
+              name: 'Standard222',
+              componentName: 'Standard'
+            },
+          ],
         },
-        {
-          text: 'Date Ranges',
-          model: false,
-          componentName: 'datePicker'
-        },
+        // {
+        //   text: 'Date Ranges',
+        //   model: false,
+        //   componentName: 'DatePicker'
+        // },
       ],
   }),
 };
 
 </script>
+
+<style scoped>
+  .filterSubtitle {
+    padding-left: 35px;
+    color: black;
+  }
+</style>

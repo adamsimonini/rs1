@@ -4,7 +4,7 @@
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
-      color="green darken-3"
+      color="#193D8F"
       dark
     >
       <v-toolbar-title
@@ -62,7 +62,7 @@ export default {
   font-size: 14px;
 }
 .router-link-active{
-    border-left: 2px solid #347d32;
+    border-left: 2px solid #193D8F;
     padding-left: 10px;
 }
 
@@ -88,6 +88,6 @@ a {
     color: #2E7D32 !important;
 }
 .path {
-  color: #347d32;
+  color: #193D8F;
 }
 </style>
