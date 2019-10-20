@@ -22,6 +22,7 @@
       <v-container
         fluid
         fill-height
+        id="map_container"
       >
         <v-layout
           justify-center
@@ -74,6 +75,9 @@ a {
 #content-container {
   width: 100%;
 }
+#map_container {
+  padding-left: 0 !important;
+}
 .filter_category{ 
   border-left: 2px #193D8F solid;
   opacity: 0.8;
@@ -95,5 +99,8 @@ a {
 .beam_mode_filter {
   padding-bottom: 10px;
   border-bottom: 1px solid #193D8F;
+}
+#map{
+  width: 100% !important;
 }
 </style>
