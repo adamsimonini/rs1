@@ -40,7 +40,7 @@ export default {
                 data: rs1_centroids_url,
                 cluster: true,
                 clusterMaxZoom: 14, // Max zoom to cluster points on
-                clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+                clusterRadius: 10 // Radius of each cluster when clustering points (defaults to 50)
             });
 
             // map.addSource('rs1-centroids', {
@@ -77,7 +77,7 @@ export default {
             //     },
             //     cluster: true,
             //     clusterMaxZoom: 14, // Max zoom to cluster points on
-            //     clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+            //     clusterRadius: 10 // Radius of each cluster when clustering points (defaults to 50)
             // }
             // );
 
@@ -117,17 +117,6 @@ export default {
 
 
             map.addLayer({
-                "id": "rs1-centroids-layer",
-                "type": "circle",
-                "source": "rs1-centroids",
-                "paint": {
-                    "circle-radius": 6,
-                    "circle-color": "#B42222"
-                },
-                "filter": ["==", "$type", "Point"],
-            });
-
-            map.addLayer({
                 "id": "rs1-extents-layer",
                 "type": "fill",
                 "source": "rs1-extents",
@@ -139,12 +128,23 @@ export default {
             });
 
             map.addLayer({
+                "id": "rs1-centroids-layer",
+                "type": "circle",
+                "source": "rs1-centroids",
+                "paint": {
+                    "circle-radius": 6,
+                    "circle-color": "#193D8F"
+                },
+                "filter": ["==", "$type", "Point"],
+            });
+
+            map.addLayer({
                 "id": "rs1-centroids-clustering-layer",
                 "type": "circle",
                 "source": "rs1-centroids",
                 "paint": {
-                    "fill-color": "#888888",
-                    "fill-opacity": 0.4
+                    "circle-radius": 6,
+                    "circle-color": "#193D8F"
                 },
                 "filter": ["==", "$type", "Polygon"],
                 "filter": ["has", "point_count"],
@@ -157,11 +157,11 @@ export default {
                 "circle-color": [
                 "step",
                 ["get", "point_count"],
-                "#51bbd6",
+                "#758ABB",
                 5,
-                "#f1f075",
+                "#4763A5",
                 10,
-                "#f28cb1"
+                "#193D8F"
                 ],
                 "circle-radius": [
                 "step",
@@ -183,7 +183,7 @@ filter: ["has", "point_count"],
 layout: {
 "text-field": "{point_count_abbreviated}",
 "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-"text-size": 18
+"text-size": 12
 }
 });
 
