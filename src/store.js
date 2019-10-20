@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drawer: true,
-    filterState: {},
+    filterState: {Standard:['Standard 1', 'Standard 2', 'Standard 3', 'Standard 4', 'Standard 5', 'Standard 6', 'Standard 7'],Fine:['Fine 1', 'Fine 2', 'Fine 3', 'Fine 4', 'Fine 5', 'Fine 6', 'Fine 7','Fine 8', 'Fine 9', 'Fine 10', 'Fine 11', 'Fine 12', 'Fine 13', 'Fine 14', 'Fine 15']},
     the_map: {},
     centroidsApiUrl: "https://spa2019-admin.deploy.solutions/api/centroids",
     footprintsApiUrl: "https://spa2019-admin.deploy.solutions/api/footprints"

@@ -1,14 +1,13 @@
 <template>
   <div class="bm_standard">
     <v-container fluid>
-      <p v-show=this.selected[0]>{{ selected }}</p>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 1" value="S1"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 2" value="S2"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 3" value="S3"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 4" value="S4"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 5" value="S5"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 6" value="S6"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 7" value="S7"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 1" value="Standard 1"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 2" value="Standard 2"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 3" value="Standard 3"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 4" value="Standard 4"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 5" value="Standard 5"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 6" value="Standard 6"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Standard 7" value="Standard 7"></v-checkbox>
     </v-container>
     <v-btn @click="toggleAll">{{toggleButtonName}}</v-btn>
   </div>
@@ -22,7 +21,7 @@ export default {
   },
   data () {
     return {
-      selected: [],
+      selected: this.$store.state.filterState.Standard,
       toggleButtonName: "Select All",
     }
   },
@@ -38,7 +37,7 @@ export default {
         this.selected = [];
         this.toggleButtonName = "Select All";
       } else {
-        this.selected = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7'];
+        this.selected = ['Standard 1', 'Standard 2', 'Standard 3', 'Standard 4', 'Standard 5', 'Standard 6', 'Standard 7'];
         this.toggleButtonName = "Select None";
       }
       let filters = this.$store.state.filterState;

@@ -1,22 +1,21 @@
 <template>
   <div class="bm_fine">
     <v-container fluid>
-      <p v-show=this.selected[0]>{{ selected }}</p>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 1" value="F1"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 2" value="F2"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 3" value="F3"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 4" value="F4"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 5" value="F5"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 6" value="F6"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 7" value="F7"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 8" value="F8"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 9" value="F9"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 10" value="F10"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 11" value="F11"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 12" value="F12"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 13" value="F13"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 14" value="F14"></v-checkbox>
-      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 15" value="F15"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 1" value="Fine 1"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 2" value="Fine 2"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 3" value="Fine 3"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 4" value="Fine 4"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 5" value="Fine 5"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 6" value="Fine 6"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 7" value="Fine 7"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 8" value="Fine 8"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 9" value="Fine 9"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 10" value="Fine 10"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 11" value="Fine 11"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 12" value="Fine 12"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 13" value="Fine 13"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 14" value="Fine 14"></v-checkbox>
+      <v-checkbox @click.native="handleClick" dense v-model="selected" label="Fine 15" value="Fine 15"></v-checkbox>
     </v-container>
     <v-btn @click="toggleAll">{{toggleButtonName}}</v-btn>
   </div>
@@ -30,7 +29,7 @@ export default {
   },
   data () {
     return {
-      selected: [],
+      selected: this.$store.state.filterState.Fine,
       toggleButtonName: "Select All",
     }
   },
@@ -46,7 +45,7 @@ export default {
         this.selected = [];
         this.toggleButtonName = "Select All";
       } else {
-        this.selected = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7','F8', 'F9', 'F10', 'F11', 'F12', 'F13', 'F14', 'F15'];
+        this.selected = ['Fine 1', 'Fine 2', 'Fine 3', 'Fine 4', 'Fine 5', 'Fine 6', 'Fine 7','Fine 8', 'Fine 9', 'Fine 10', 'Fine 11', 'Fine 12', 'Fine 13', 'Fine 14', 'Fine 15'];
         this.toggleButtonName = "Select None";
       }
       let filters = this.$store.state.filterState;

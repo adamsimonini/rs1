@@ -16,15 +16,28 @@ const opts = {
 Vue.use(Vuetify);
 Vue.mixin({
   methods: {
+    buildQueryObject: function (filters) {
+
+      let queryFilterObject = {beam_modep:[]}
+      for (var key in filters) {
+        if (filters.hasOwnProperty(key)) {
+          console.log(key + " -> " + filters[key]);
+          queryFilterObject.beam_modep = queryFilterObject.beam_modep.concat(filters[key])
+        }
+      }
+      return JSON.stringify(queryFilterObject)
+    },
     buildCentroidsUrl: function (filters) {
-      let url = this.$store.state.centroidsApiUrl
-      console.log('filters: ' + JSON.stringify(this.$store.state.filterState))
+      let baseUrl = this.$store.state.centroidsApiUrl
+      let queryObjectString = this.buildQueryObject(filters)
+      let url = baseUrl + '?filter=' + queryObjectString
       console.log('centroids:' + url)
       return url
     },
     buildFootprintsUrl: function (filters) {
-      let url = this.$store.state.footprintsApiUrl
-      console.log('filters: ' + JSON.stringify(this.$store.state.filterState))
+      let baseUrl = this.$store.state.footprintsApiUrl
+      let queryObjectString = this.buildQueryObject(filters)
+      let url = baseUrl + '?filter=' + queryObjectString
       console.log('footprints:' + url)
       return url
     },
