@@ -208,7 +208,7 @@ export default {
         propsData: { 
           feature: {
             info: {
-              beamMode: ['Standard', "Fine", "Extened High", "Extended Low", "ScanSAR"],
+              beamMode: ['Standard', "Fine", "Extended High", "Extended Low", "ScanSAR Wide", "ScanSAR Narrow"],
               lng: e.lngLat.lng,
               lat: e.lngLat.lat,
             }

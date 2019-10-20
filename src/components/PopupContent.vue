@@ -25,7 +25,7 @@ export default Vue.extend({
       alert('Your interest in this data has been received.')
     },
     randomBeam() {
-      return Math.floor(Math.random() * 5);
+      return Math.floor(Math.random() * (this.feature.info.beamMode.length));
     }
   },
 })
