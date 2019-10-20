@@ -14,7 +14,14 @@ const opts = {
   },
 };
 Vue.use(Vuetify);
+Vue.mixin({
+  methods: {
+    refreshMap: function(){
+      console.log(JSON.stringify(this.$store.state.filterState))
+    }
 
+  }
+ })
 new Vue({
   store,
   router,

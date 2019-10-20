@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drawer: true,
+    filterState: {},
     the_map: {},
   },
   mutations: {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     assignMap(state, map) {
       state.the_map = map;
+    },
+    assignFilters(state, filters) {
+      state.filterState = filters
     }
 
   },
