@@ -52,8 +52,15 @@ Vue.mixin({
       let updatedFootprintsUrl = this.buildFootprintsUrl(filters)
       console.log('refreshing footprints with data from ' + updatedFootprintsUrl)
       map.getSource('rs1-extents').setData(updatedFootprintsUrl)
+    },
+    updateExtentsVisibility: function() {
+      let map = this.$store.state.the_map
+      if (this.$store.state.showExtents){
+        map.setLayoutProperty('rs1-extents-layer', 'visibility', 'visible');
+      } else {
+        map.setLayoutProperty('rs1-extents-layer', 'visibility', 'none');
+      }
     }
-
   }
 })
 new Vue({

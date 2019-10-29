@@ -1,6 +1,13 @@
 <template>
   <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
     <v-list dense>
+      <v-list-item>
+        <v-list-item-content>
+          <ToggleExtents></ToggleExtents>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
+    <v-list dense>
       <template v-for="(item, i) in filters">
         <v-list-group
           :key="item.text"
@@ -38,6 +45,7 @@ import BMExtendedHigh from "@/components/BeamModes/ExtendedHigh.vue";
 import BMExtendedLow from "@/components/BeamModes/ExtendedLow.vue";
 import LocationSearch from "@/components/LocationSearch.vue";
 import DateRanges from "@/components/DateRanges.vue";
+import ToggleExtents from "@/components/ToggleExtents.vue";
 
 export default {
   name: "FilterBar",
@@ -51,7 +59,8 @@ export default {
     BMExtendedHigh,
     BMExtendedLow,
     LocationSearch,
-    DateRanges
+    DateRanges,
+    ToggleExtents
   },
   data: () => ({
     drawer: null,

@@ -126,6 +126,9 @@ export default {
         id: "rs1-extents-layer",
         type: "fill",
         source: "rs1-extents",
+        layout:{
+          visibility: "none",
+        },
         paint: {
           "fill-color": "#888888",
           "fill-opacity": 0.4

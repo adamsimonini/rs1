@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     drawer: true,
+    showExtents: false,
     filterState: {
       Scn: ['ScanSAR Narrow A (W1 W2)', 'ScanSAR Narrow B (W2 S5 S6)'],
       ExtendedHigh: ['Extended High 1', 'Extended High 2', 'Extended High 3', 'Extended High 4', 'Extended High 5', 'Extended High 6'],
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     assignFilters(state, filters) {
       state.filterState = filters
+    },
+    toggleExtents(state) {
+      state.showExtents ? state.showExtents = false : state.showExtents = true;
     }
 
   },
