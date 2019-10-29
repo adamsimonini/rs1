@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h3>{{feature.info.beamMode[randomBeam()]}}</h3>
-    <p class="image-info"><b>ID: </b>rsat1_19980128_N5786W10910</p>
-    <p class="image-info"><b>Pass Direction: </b>Descending</p>
-    <p class="image-info"><b>Look Orientation: </b>Right</p>
+    <h3>{{feature.info.properties.BEAM_MODEP}}</h3>
+    <p class="image-info"><b>ID: </b>{{feature.info.properties.TITLEPrope}}</p>
+    <p class="image-info"><b>Pass Direction: </b>{{feature.info.properties.ORBIT_DIRP}}</p>
+    <p class="image-info"><b>Look Orientation: </b>{{feature.info.properties.LOOK_ORIEP}}</p>
     <p class="image-info"><b>Longitude: </b>{{feature.info.lng}}</p>
     <p class="image-info"><b>Latitude: </b>{{feature.info.lat}}</p>
-    <p class="image-info"><b>Start Date: </b>1998-01-28T13:36:55+00:00</p>
-    <p class="image-info"><b>End Date: </b>1998-01-28T13:37:12+00:00</p>
+    <p class="image-info"><b>Start Date: </b>{{feature.info.properties.DATEProper}}</p>
+    <p class="image-info"><b>End Date: </b>{{feature.info.properties.END_DATEPr}}</p>
   </div>
 </template>
  
@@ -20,14 +20,7 @@ export default Vue.extend({
       info: Object,
     },
   },
-  methods: {
-    popupClicked() {
-      alert('Your interest in this data has been received.')
-    },
-    randomBeam() {
-      return Math.floor(Math.random() * (this.feature.info.beamMode.length));
-    }
-  },
+  methods: {},
 })
 </script>
 
