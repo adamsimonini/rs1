@@ -71,7 +71,9 @@ a {
   text-decoration: none;
   color: black !important; 
 }
-
+#map_container {
+  padding: 0 !important;
+}
 #content-container {
   width: 100%;
 }
