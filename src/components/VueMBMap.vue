@@ -5,6 +5,12 @@
             :mapStyle="mapStyle" 
             @load="loaded"
         >
+            <MglGeojsonLayer
+                :sourceId="geoJsonSource.id"
+                :source="geoJsonSource"
+                layerId="myLayer"
+                :layer="geoJsonlayer"
+            />
             <MglNavigationControl position="top-right" />
         </MglMap>
     </div>
@@ -12,17 +18,27 @@
 
 <script>
 import Mapbox from "mapbox-gl";
-import { MglMap } from "vue-mapbox";
+import { MglMap, MglNavigationControl, MglGeojsonLayer } from "vue-mapbox";
+import DummyData from '@/assets/static-data-sample.js'
 
 
 export default {
   components: {
-    MglMap
+    MglMap,
+    MglNavigationControl,
+    MglGeojsonLayer,
   },
   data() {
     return {
       accessToken: "pk.eyJ1Ijoia3Jiam9uZXMiLCJhIjoiYjZiM2UxZDYyYWQ0MmI0ZWY4ZDU0ZTAxMmRhNjIxMWEifQ.W29Ph-YqccKz7_pfVAd2qw", // your access token. Needed if you using Mapbox maps
       mapStyle: "mapbox://styles/mapbox/streets-v11",
+      geoJsonSource: DummyData,
+      geoJsonLayer: {
+        "type": "geojson",
+          cluster: true,
+          clusterMaxZoom: 14, // Max zoom to cluster points on
+          clusterRadius: 10 // Radius of each cluster when clustering points (defaults to 50)
+      }
     };
   },
   methods: {
