@@ -203,31 +203,42 @@ export default {
           coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
 
+        let multipleFeatures = false
+        let featureProperties = e.features[0].properties
+        let numFeatures = 1
+
+
         // if more than one feature is present here (clustering, or multiselect), don't display the popup with image metadata.
         if (e.features.length > 1 || e.features[0].properties.cluster) {
-          new mapboxgl.Popup()
-            .setLngLat({ lng: coordinates[0], lat: coordinates[1] })
-            // setup a new div to mount the popup
-            .setHTML("Multiple features at this location")
-            .addTo(map);
-        } else {
-          new mapboxgl.Popup()
-            .setLngLat({ lng: coordinates[0], lat: coordinates[1] })
-            // setup a new div to mount the popup
-            .setHTML('<div id="vue-popup-content"></div>')
-            .addTo(map);
-          new PopupContent({
-            propsData: {
-              feature: {
-                info: {
-                  properties: e.features[0].properties,
-                  lng: e.lngLat.lng,
-                  lat: e.lngLat.lat
-                }
+          multipleFeatures = true
+          numFeatures = e.features[0].properties.point_count
+          featureProperties = {    
+            BEAM_MODEP: "Standard 4",
+            TITLEPrope: "rsat1_19980128_N5786W10910",
+            ORBIT_DIRP: "Descending",
+            LOOK_ORIEP: "Right",
+            DATEProper: "1998-01-28 13:36:55 GMT",
+            END_DATEPr: "1998-01-28 13:37:12 GMT"
+          }
+        } 
+        new mapboxgl.Popup()
+          .setLngLat({ lng: coordinates[0], lat: coordinates[1] })
+          // setup a new div to mount the popup
+          .setHTML('<div id="vue-popup-content"></div>')
+          .addTo(map);
+        new PopupContent({
+          propsData: {
+            feature: {
+              info: {
+                properties: featureProperties,
+                multipleFeatures: multipleFeatures,
+                numFeatures: numFeatures,
+                lng: e.lngLat.lng,
+                lat: e.lngLat.lat
               }
             }
-          }).$mount("#vue-popup-content");
-        }
+          }
+        }).$mount("#vue-popup-content");
       }
     }
   }

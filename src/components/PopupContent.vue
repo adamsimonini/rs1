@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h4 v-if="feature.info.multipleFeatures">{{feature.info.numFeatures}} features at this location. Sample feature shown.</h4>
     <h3>{{feature.info.properties.BEAM_MODEP}}</h3>
     <p class="image-info"><b>ID: </b>{{feature.info.properties.TITLEPrope}}</p>
     <p class="image-info"><b>Pass Direction: </b>{{feature.info.properties.ORBIT_DIRP}}</p>
